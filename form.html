@@ -44,8 +44,8 @@
         
         <div class="form-item">
           <p>Are you legally authorized to work in the United States with out sponsorship for an employment visa?</p>
-          <input type="radio" name="visaNeeded" value="yes" onchange="yesnoCheck(this);"> Yes</input>
-          <input type="radio" name="visaNeeded" value="no" onchange="yesnoCheck(this);"> No</input>
+          <input type="radio" name="visaNeeded" value="1" onchange="yesnoCheck(this);"> Yes</input>
+          <input type="radio" name="visaNeeded" value="0" onchange="yesnoCheck(this);"> No</input>
         </div>
         
         <div class="form-item" id="ifYes" style="display: none;">
@@ -69,7 +69,7 @@
           <label for="coding-language4"> C++</label><br>
           <input type="checkbox" id="coding-language5" name="codingLanguages" value="JavaScript">
           <label for="coding-language5"> JavaScript</label><br>
-          <input type="checkbox" id="coding-language6" name="codingLanguages" value="Others" onchange="languageCheck(this);">
+          <input type="checkbox" id="coding-language6" name="codingLanguages" value="" onchange="languageCheck(this);">
           <label for="coding-language6"> Others</label><br>
         </div>
         
@@ -89,7 +89,7 @@
     </div>
     <script>
         function yesnoCheck(that) {
-    if (that.value == "no") {
+    if (that.value == "0") {
         document.getElementById("ifYes").style.display = "block";
     } else {
         document.getElementById("ifYes").style.display = "none";
@@ -97,7 +97,7 @@
 }
 
 function languageCheck(that) {
-    if (that.value == "Others") {
+    if (that.value == "") {
         document.getElementById("ifOthers").style.display = "block";
     } else {
         document.getElementById("ifOthers").style.display = "none";
