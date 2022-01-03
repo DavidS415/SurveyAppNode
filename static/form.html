@@ -8,6 +8,11 @@
 
   <body>
     <div>
+      <a href="/getdetails">View Results</a>
+      <a href="../form.html">Fill Out Survey</a>
+    </div>
+    <hr>
+    <div>
       <h1 id="title">Survey Form</h1>
     </div>
     <div>
@@ -17,8 +22,8 @@
       <form id="survey-form" action="/submit" method="post">
         
         <div class="form-item">
-           <label for="name" id="name-label" name="name">Your name:</label>
-           <input id="name" type="text" placeholder="Enter your name" required>
+           <label for="name" id="name-label">Your name:</label>
+           <input id="name" name="name" type="text" placeholder="Enter your name" required>
         </div>
         
         <div class="form-item">

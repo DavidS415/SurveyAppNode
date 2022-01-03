@@ -1,0 +1,31 @@
+<div>
+<a href="/getdetails">View Results</a>
+<a href="../form.html">Fill Out Survey</a>
+</div>
+<hr>
+    
+    <% if(details!=null) { %>
+    <table>
+    <tr>
+        <th>Name</th>
+        <th>Email </th>
+        <th>Phone Number</th>
+        <th>Level of Interest </th>
+        <th>Visa Needed </th>
+        <th>Visa</th>
+        <th>Languages</th>
+    </tr>
+    <% details.forEach(function(item){ %>
+    <tr>
+        <td><%= item.name%></td>
+        <td><%= item.email %></td>
+        <td><%= item.phoneNumber%></td>
+        <td><%= item.interestLevel %></td>
+        <td><%= item.visaNeeded%></td>
+        <td><%= item.visa%></td>
+        <td><%= item.codingLanguages%></td>
+    
+    </tr>
+    <% }) %>
+    </table>
+    <% } %>
