@@ -32,13 +32,11 @@ app.get("/getdetails", function (req, res) {
     })
 })
 
-app.use(express.static(__dirname + "/static"));
-
 app.post("/submit", (req, res) => {
     var myData = new Result(req.body);
     myData.save()
         .then(item => {
-            res.render("index",{ details: null })
+            res.redirect("/getdetails")
         })
         .catch(err => {
             res.status(400).send("Unable to save to database");
