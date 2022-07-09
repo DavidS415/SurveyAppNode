@@ -22,18 +22,24 @@ var nameSchema = new mongoose.Schema({
     codingLanguages: Array,
 });
 var Result = mongoose.model("results", nameSchema);
+
 app.get("/", function (req, res) {
-    res.render("index",{ details: null })
-    })
-    app.get("/getdetails", function (req, res) {   
-        Result.find({}, function (err, allDetails) {
+    res.render("index",{ details: null });
+})
+
+app.get("/form", function (req, res) {
+    res.render("form");
+})
+
+app.get("/getdetails", function (req, res) {   
+    Result.find({}, function (err, allDetails) {
         if (err) {
             console.log(err);
         } else {
             res.render("index", { details: allDetails })
         }
-        })
     })
+})
 
 app.use(express.static(__dirname + "/static"));
 
