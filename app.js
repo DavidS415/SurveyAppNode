@@ -5,10 +5,13 @@ var bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
+const dotenv = require("dotenv");
+dotenv.config();
 
+const database = process.env.MONGOLAB_URI;
 var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb+srv://testUser:eEmUrWxHhyJppNfh@formsurvey1.dtdgc.mongodb.net/sample_survey?retryWrites=true&w=majority");
+mongoose.connect(database);
 var nameSchema = new mongoose.Schema({
     name: String,
     email: String,
