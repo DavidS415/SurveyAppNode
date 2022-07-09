@@ -7,21 +7,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 const dotenv = require("dotenv");
 dotenv.config();
+var mongoose = require("mongoose");
+const Result = require("./models/Result");
 
 const database = process.env.MONGOLAB_URI;
-var mongoose = require("mongoose");
 mongoose.Promise = global.Promise;
 mongoose.connect(database);
-var nameSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    phoneNumber: Number,
-    interestLevel: Number,
-    visaNeeded: Boolean,
-    visa: String,
-    codingLanguages: Array,
-});
-var Result = mongoose.model("results", nameSchema);
 
 app.get("/", function (req, res) {
     res.render("index",{ details: null });
