@@ -17,7 +17,7 @@
     </tr>
     <% details.forEach(function(item){ %>
     <tr>
-        <td><%= item.name%></td>
+        <td><a href="/delete/<%= item._id%>" class="delete"><%= item.name%></a></td>
         <td><%= item.email %></td>
         <td><%= item.phoneNumber%></td>
         <td><%= item.interestLevel %></td>
@@ -28,4 +28,13 @@
     </tr>
     <% }) %>
     </table>
+    <script>
+        const elementToDelete = document.getElementsByClassName('delete');
+        function warnThenDelete(e) {
+            if (!confirm('You are permenatly deleting this result from the surver, are you sure you wish to proceed?')) e.preventDefault();
+        };
+        for (var i = 0, l = elementToDelete.length; i < l; i++) {
+            elementToDelete[i].addEventListener('click', warnThenDelete, false);
+        }
+    </script>
     <% } %>

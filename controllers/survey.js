@@ -31,4 +31,16 @@ router.post("/submit", (req, res) => {
         });
 });
 
+router.get("/delete/:id", (req, res) => {
+    const id = req.params.id;
+    Result.findByIdAndDelete(id, function(err) {
+        if(err) {
+            console.log(err);
+        } else {
+            console.log("item deleted");
+            res.redirect("/getdetails");
+        }
+    })
+})
+
 module.exports = router;
