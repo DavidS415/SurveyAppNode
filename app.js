@@ -10,7 +10,10 @@ dotenv.config();
 var mongoose = require("mongoose");
 const database = process.env.MONGOLAB_URI;
 mongoose.Promise = global.Promise;
-mongoose.connect(database);
+mongoose
+    .connect(database)
+    .then(() => console.log('Database Connected'))
+    .catch(err => console.log(err));
 
 app.use('/', require('./controllers/survey'));
 
